@@ -1,0 +1,10 @@
+1) SWEET32 Birthday attack
+Reference: https://bobcares.com/blog/how-to-fix-sweet32-birthday-attacks-vulnerability-cve-2016-2183/
+
+What is SWEET32 Birthday Attack?
+Your web server encrypts data using cryptographic keys. These keys are chosen randomly, and the probability of any two customers getting the same key is very low.
+With the SWEET32 vulnerability, it is now shown that an attacker can send in large volume of dummy data, and get blocks of cipher text that matches that of a customer.
+It is possible because the 64-bit blocks used by 3DES-DES generates a lot of packets, which increases the probability of an encrypted packet of a customer and that of the attacker matching. To break it down:
+- The attacker sniffs all data sent to your customer.
+- Attacker sends dummy data to your server until a key used for a customer matches the attacker’s session key.
+- Once there’s a match, sensitive data can be decrypted by determining how the key was chosen.
